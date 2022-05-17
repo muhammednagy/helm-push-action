@@ -34,4 +34,4 @@ helm dependency update .
 
 helm package .
 
-helm cm-push ${CHART_FOLDER}-* ${CHARTMUSEUM_URL} ${FORCE}
+helm cm-push ${CHART_FOLDER} ${CHARTMUSEUM_URL} ${FORCE}
