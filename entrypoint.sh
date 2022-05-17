@@ -12,16 +12,6 @@ if [ -z "$CHARTMUSEUM_URL" ]; then
   exit 1
 fi
 
-if [ -z "$CHARTMUSEUM_USER" ]; then
-  echo "CHARTMUSEUM_USER is not set. Quitting."
-  exit 1
-fi
-
-if [ -z "$CHARTMUSEUM_PASSWORD" ]; then
-  echo "CHARTMUSEUM_PASSWORD is not set. Quitting."
-  exit 1
-fi
-
 if [ -z "$SOURCE_DIR" ]; then
   SOURCE_DIR="."
 fi
@@ -44,4 +34,4 @@ helm dependency update .
 
 helm package .
 
-helm cm-push ${CHART_FOLDER}-* ${CHARTMUSEUM_URL} -u ${CHARTMUSEUM_USER} -p ${CHARTMUSEUM_PASSWORD} ${FORCE}
+helm cm-push ${CHART_FOLDER}-* ${CHARTMUSEUM_URL} ${FORCE}
